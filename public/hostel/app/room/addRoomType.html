@@ -1,0 +1,10 @@
+<div class="container" ng-controller="addRoomTypeCtrl as rc">
+  <h1>Dodaj typ pokoju</h1>
+<form ng-submit="rc.addRoomType()">
+  <div class="form-group">
+    <label>Typ pokoju</label>
+    <input class="form-control" type="text" name="name" ng-model="rc.name"/>
+  </div>
+  <input class="btn btn-default" type="submit" value="Dodaj">
+</form>
+</div>

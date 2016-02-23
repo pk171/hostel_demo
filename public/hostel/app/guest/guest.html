@@ -1,0 +1,42 @@
+<div class="container" ng-controller="GuestCtrl as gc">
+  <div class="row">
+        <div class="col-md-10">
+      <div class="row">
+          <h1>Lista gości</h1>
+        <div class="form-group col-md-3">
+          <label>Szukaj:</label>
+          <input class="form-control" type="text" name="search" ng-model="search"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Edytuj</th>
+                <th>Usuń</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr dir-paginate="guest in gc.guests | filter: search | itemsPerPage: 10 " total-items="gc.totalGuests" current-page="gc.pagination.current">
+                <td>{{guest.firstName}}</td>
+                <td>{{guest.lastName}}</td>
+                <td>
+                  <a href="#/guest/edit/{{guest.id}}" class="btn btn-default">Edytuj</a>
+                </td>
+                <td>
+                  <button class="btn btn-default" ng-click="gc.removeGuest(guest)">Usuń</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <dir-pagination-controls auto-hide="false" on-page-change="gc.pageChanged(newPageNumber)"></dir-pagination-controls>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

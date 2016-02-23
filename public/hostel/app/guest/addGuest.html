@@ -1,0 +1,17 @@
+<div ng-controller="addGuestCtrl as gc" class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Dodawanie gościa</h1>
+            <form ng-submit="gc.addGuest()">
+                <div class="form-group">
+                    <label>
+                        Imię</label>
+                    <input class="form-control" type="text" name="firstName" ng-model="gc.firstName" />
+                    <label>Nazwisko</label>
+                    <input class="form-control" type="text" name="lastName" ng-model="gc.lastName" />
+                    <input class="btn btn-default" type="submit" value="Dodaj">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

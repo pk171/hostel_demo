@@ -1,0 +1,25 @@
+<div class="container" ng-controller="RoomCtrl as rc">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Typy pokoi</h1>
+      <table class="table table-striped table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th>Typ pokoju</th>
+            <th>Usuń</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="roomType in rc.roomTypes">
+            <td>
+              <a href="#/roomList/{{roomType.id}}">{{roomType.name}}</a>
+            </td>
+            <td>
+              <button class="btn btn-danger" ng-click="gc.removeGuest(guest)">Usuń</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

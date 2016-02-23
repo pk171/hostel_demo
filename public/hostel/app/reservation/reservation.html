@@ -1,0 +1,46 @@
+<div class="container" ng-controller="reservationCtrl as revCtrl">
+
+  <!-- Modal -->
+  <div id="reservationDetalis" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Detale rezerwacji</h4>
+        </div>
+        <div class="modal-body">
+          <p>od: {{revCtrl.reservationInfo.date_in}}</p>
+          <p>do: {{revCtrl.reservationInfo.date_out}}</p>
+          <p>zrobiona przez: {{revCtrl.reservationInfo.made_by}}</p>
+          <p>pojemność: {{revCtrl.reservationInfo.capacity}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table class="table-responsive table table-striped table-bordered table-condensed">
+    <input class="btn btn-default" type="button" value="Poprzedni" ng-click="revCtrl.prevClicked()">
+    <input class="btn btn-default" type="button" value="Następny" ng-click="revCtrl.nextClicked()">
+    <thead >
+      <tr>
+        <th>Pokoje</th>
+        <th ng-repeat="data in revCtrl.dateHeads">{{data.format("MMM Do YY")}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="av in revCtrl.avabilityArray">
+        <td class="noPadding" ng-repeat="avability in av track by $index">
+          <div ng-class="revCtrl.cellClass(avability)" ng-click="revCtrl.reservationDetails(avability)">
+            <div ng-show="revCtrl.roomNumberStyle(avability)">{{avability}}</div>
+            <button class="bg-danger btn btn-lg btn-block" data-toggle="modal" data-target="#reservationDetalis" ng-show="revCtrl.avabilityReservedStyle(avability)"></button>
+            <div class="bg-warning btn btn-lg btn-block" ng-show="revCtrl.avabilityFreeStyle(avability)"></div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,14 @@
+<div class="container" ng-controller="addRoomCtrl as rc">
+    <h1>Dodawanie pokoju</h1>
+    <form ng-submit="rc.addRoom()">
+        <div class="form-group">
+            <label>Numer</label>
+            <input class="form-control" type="text" name="number" ng-model="rc.number" />
+            <label>Pojemność</label>
+            <input class="form-control" type="text" name="capacity" ng-model="rc.capacity" />
+            <label>Typ pokoju</label>
+            <select class="form-control" ng-model="rc.selectedOption" ng-options="selectedItem.id as selectedItem.name for selectedItem in rc.avabileOptions track by selectedItem.id"></select>
+        <input class="btn btn-default " type="submit" value="Dodaj "/>
+        </div>
+    </form>
+</div>

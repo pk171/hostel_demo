@@ -1,0 +1,18 @@
+<!--EDIT -->
+<div class="container" ng-controller="editGuestCtrl as gc">
+    <div class="row">
+        <div class="col-md-4">
+            <h2> <small>Edycja gościa</small></h2>
+            <form ng-submit="gc.editGuest()">
+                <div class="form-group">
+                    <label>
+                        Imię</label>
+                    <input class="form-control" type="text" name="firstName" ng-model="gc.guest.firstName" />
+                    <label>Nazwisko</label>
+                    <input class="form-control" type="text" name="lastName" ng-model="gc.guest.lastName" />
+                    <input class="btn btn-default" type="submit" value="Zapisz">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
